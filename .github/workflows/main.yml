@@ -13,11 +13,18 @@ jobs:
       uses: StephenVNelson/website/@gh-pages
       with:
         who-to-greet: 'Van Vleet!'
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Create local changes
+      run: |
+        ...
     - name: Commit files
       run: |
-        git config --local user.email "StephenVNelson@github.com"
-        git config --local user.name "Stephen Nelson"
-        git commit -m "Update JSON" -a
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
