@@ -6,24 +6,6 @@ const path = require('path')
 
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  // const nameToGreet = core.getInput('who-to-greet');
-  // console.log(`Hello ${nameToGreet}!`);
-  // const time = (new Date()).toTimeString();
-  // core.setOutput("time", time);
-  // // Get the JSON webhook payload for the event that triggered the workflow
-  // const payload = JSON.stringify(github.context.payload, undefined, 2)
-  // console.log(`The event payload: ${payload}`);
-  // const apiData = fetch(
-  //   'https://api.github.com/search/repositories?q=topic:hack-for-la&sort=updated&order=desc', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Accept': "application/vnd.github.mercy-preview+json",
-  //       'User-Agent': 'HackForLA'
-  //     }
-  //   }
-  // )
-  // console.log(apiData);
   const options = {
     hostname: 'api.github.com',
     method : 'GET',
@@ -47,9 +29,11 @@ try {
       fs.writeFileSync(jsonPath, newBody)
     });
   });
-  let newFileInfo = JSON.parse(fs.readFileSync(__dirname, '..', 'db', 'db.json'));
+  let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
+  console.log(jsonPath);
+  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 2));
   console.log("it worked!");
   console.log(newFileInfo);
 } catch (error) {
-  core.setFailed("error.message");
+  core.setFailed(error.message);
 }
