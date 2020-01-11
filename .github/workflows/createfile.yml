@@ -1,2 +1,0 @@
-- name: Create File
-  uses: finnp/create-file-action@1.0.0

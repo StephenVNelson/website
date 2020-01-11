@@ -42,11 +42,14 @@ try {
     res.on("end", () => {
       body = JSON.parse(body)
       let newBody = JSON.stringify(body, null, 2);
-      console.log("it worked!");
+
       let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
       fs.writeFileSync(jsonPath, newBody)
     });
   });
+  let newFileInfo = JSON.parse(fs.readFileSync(__dirname, '..', 'db', 'db.json'));
+  console.log("it worked!");
+  console.log(newFileInfo);
 } catch (error) {
   core.setFailed("error.message");
 }
