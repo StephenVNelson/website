@@ -14,5 +14,9 @@ jobs:
       with:
         who-to-greet: 'Van Vleet!'
     # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - name: add file
+      run: git add .
+    - name: commit the file
+      run: git commit -m "adding json file"
+    - name: push the commit
+      run: git push
