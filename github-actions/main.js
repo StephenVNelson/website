@@ -31,9 +31,11 @@ try {
   });
   let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
   console.log(jsonPath);
-  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 2));
+  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
   console.log("it worked!");
   console.log(newFileInfo);
 } catch (error) {
+  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
+  console.log(newFileInfo);
   core.setFailed(error.message);
 }
