@@ -16,7 +16,7 @@ jobs:
     - name: Create File
       uses: finnp/create-file-action@master
       env:
-        FILE_NAME: example.md
+        FILE_NAME: ./db/example.md
         FILE_DATA: Example file\nThis is an example
     - name: Commit files
       run: |
