@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # - name: Generate JSON
-    #   id: hello
-    #   uses: StephenVNelson/website/@gh-pages
-    #   with:
-    #     who-to-greet: 'Van Vleet!'
+    - name: Generate JSON
+      id: json
+      uses: StephenVNelson/website/@gh-pages
+      # with:
+      #   who-to-greet: 'Van Vleet!'
     - name: Create File
       uses: finnp/create-file-action@master
       env:
-        FILE_NAME: ./db/example.md
-        FILE_DATA: Example file\nThis is an example
+        FILE_NAME: ./db/db.json
+        FILE_DATA: ${{ steps.json.outputs.json }}
     - name: Commit files
       run: |
         git config --local user.email "StephenVNelson@github.com"

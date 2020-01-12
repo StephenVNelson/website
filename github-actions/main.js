@@ -26,17 +26,18 @@ try {
       let newBody = JSON.stringify(body, null, 2);
 
       let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
-      fs.writeFileSync(jsonPath, newBody)
+      core.setOutput("json", newBody)
+      // fs.writeFileSync(jsonPath, newBody)
     });
   });
-  let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
-  console.log(jsonPath);
-  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
-  console.log("it worked!");
-  console.log(newFileInfo);
+  // let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
+  // console.log(jsonPath);
+  // let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
+  // console.log("it worked!");
+  // console.log(newFileInfo);
 } catch (error) {
-  let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
-  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
-  console.log(newFileInfo);
+  // let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
+  // let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
+  // console.log(newFileInfo);
   core.setFailed(error.message);
 }

@@ -6,8 +6,8 @@ inputs:
     required: true
     default: 'World'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  json: # id of output
+    description: 'json from the api call'
 runs:
   using: 'node12'
   main: './github-actions/main.js'
