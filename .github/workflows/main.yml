@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Generate JSON
       id: json
-      uses: StephenVNelson/website/@gh-pages\
+      uses: StephenVNelson/website/@gh-pages
     - name: Create File
       uses: finnp/create-file-action@master
       env:
