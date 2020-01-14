@@ -23,7 +23,7 @@ jobs:
         git config --local user.email "StephenVNelson@github.com"
         git config --local user.name "Stephen Nelson"
         git add .
-        git commit -m "Add changes"
+        git commit -m "update db/db.json"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

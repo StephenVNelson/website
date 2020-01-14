@@ -15,26 +15,29 @@ try {
       'User-Agent': 'HackForLA'
     }
   }
-  https.get(options, res => {
-    res.setEncoding("utf8");
-    let body = "";
-    res.on("data", data => {
-      body += data;
-    });
-    res.on("end", () => {
-      body = JSON.parse(body)
-      let newBody = JSON.stringify(body, null, 2);
 
-      let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
-      core.setOutput("json", newBody)
-      // fs.writeFileSync(jsonPath, newBody)
-    });
-  });
-  // let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
+  // https.get(options, res => {
+  //   res.setEncoding("utf8");
+  //   let body = "";
+  //   res.on("data", data => {
+  //     body += data;
+  //   });
+  //   res.on("end", () => {
+  //     body = JSON.parse(body)
+  //     let newBody = JSON.stringify(body, null, 2);
+  //
+  //     let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
+  //     core.setOutput("json", newBody)
+  //     // fs.writeFileSync(jsonPath, newBody)
+  //   });
+  // });
+
+
+  let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
   // console.log(jsonPath);
-  // let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
+  let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
   // console.log("it worked!");
-  // console.log(newFileInfo);
+  console.log(newFileInfo.total_count);
 } catch (error) {
   // let jsonPath = path.join(__dirname, '..', 'db', 'db.json');
   // let newFileInfo = JSON.parse(fs.readFileSync(jsonPath, "utf8", 'r+'));
