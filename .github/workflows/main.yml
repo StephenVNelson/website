@@ -7,12 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: Generate JSON
       id: json
-      uses: StephenVNelson/website/@gh-pages
-      # with:
-      #   who-to-greet: 'Van Vleet!'
+      uses: StephenVNelson/website/@gh-pages\
     - name: Create File
       uses: finnp/create-file-action@master
       env:
